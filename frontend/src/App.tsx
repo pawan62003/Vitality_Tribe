@@ -1,13 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './Components/Navbar';
+import MainRoutes from './Routes/MainRoutes';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="text-6xl">this is hackathon project</h1>
-      </header>
+      <Navbar/>
+        <MainRoutes/>
     </div>
   );
 }
