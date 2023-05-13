@@ -2,7 +2,8 @@ import React from 'react'
 import { text } from 'stream/consumers';
 
 const Stats = ({obj}:any) => {
-    console.log(obj);
+
+
   return (
     <div className='flex justify-around my-10 border-r-10 shadow-xl p-5'>
        <div  className='flex justify-between text-xl w-[50%] text-bold items-center  border-r-2 border-r-black p-[20px]' >
