@@ -8,6 +8,7 @@ import DashboardPage from '../Pages/DashboardPage'
 import Food from '../Pages/Food'
 import Exercise from '../Pages/Exercise'
 import PrivateRoute from '../Components/ProvateRoute'
+import CommunityPage from '../Pages/CommunityPage'
 
 const MainRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const MainRoutes = () => {
         </PrivateRoute>} />
       <Route path='/food' element={<PrivateRoute><Food /></PrivateRoute>} />
       <Route path="/exercise" element={<PrivateRoute><Exercise /></PrivateRoute>} />
+      <Route path="/community" element={<CommunityPage />} />
       <Route path="*" element={<PagenotFound />} />
     </Routes>
   )
