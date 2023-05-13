@@ -22,6 +22,7 @@ import { addFood, getFood } from '../Redux/FoodReducer/action';
       LoginReducer : login
     }
 const Food = () => {
+  const [isOpen, setisOpen] = React.useState(true);
   const [quantity,setQuantity]=React.useState<any>(1)
   const dispatch=useDispatch()
 const stores=useSelector((store:RootState)=>store.FoodReducer.data)
@@ -47,11 +48,11 @@ const handleSubmit=(id:String)=>{
   }
 
   return (
-    <div className="flex">
-      <div>
-        <SideNavigationBar />
+    <div className='flex mt-[78px]'>
+      <div className='fixed'>
+        <SideNavigationBar obj={{ isOpen, setisOpen }} />
       </div>
-      <div className='w-4/5 p-6 border border-gray-400'>
+      <div className={`w-4/5 p-6 border border-gray-400 my-8 ${isOpen ? "ml-72" : "ml-20"} duration-500`}>
         <h1 className="text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-8">
         Select Your Food
 </h1>
