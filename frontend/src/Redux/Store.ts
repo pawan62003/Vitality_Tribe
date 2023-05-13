@@ -5,9 +5,10 @@ import thunk from "redux-thunk";
 import {Reducer as SignupReducer} from "./RegisterReducer/Reducer"
 import { AnyAction } from 'redux'
 import { ThunkAction } from 'redux-thunk'
-
+import {Reducer as LoginReducer} from "./LoginReducer/Reducer"
 const RootReducer = combineReducers({
-  SignupReducer
+  SignupReducer,
+  LoginReducer
 });
 
 export const store = legacy_createStore(RootReducer, applyMiddleware(thunk));

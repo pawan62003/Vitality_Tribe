@@ -5,6 +5,9 @@ const DashboardPage = () => {
   return (
     <div>
       <SideNavigationBar/>
+      <div>
+        
+      </div>
     </div>
   )
 }

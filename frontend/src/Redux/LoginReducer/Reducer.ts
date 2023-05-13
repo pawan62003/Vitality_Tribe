@@ -1,44 +1,52 @@
 import React from 'react'
 
 import{
-    REGISTER_REQUEST,
-    REGISTER_FAILURE,
-    REGISTER_SUCCESSFULL
+    LOGIN_REQUEST,
+    LOGIN_FAILURE,
+    LOGIN_SUCCESSFULL,
+    LOGOUT_USER
 } from "./actionTypes"
 
 const init = {
     isError:false,
     isloading:false,
+    isAuth : (JSON.parse(localStorage.getItem("isAuth")||""))||false,
+    token : localStorage.getItem("token")||""
 }
 
 export interface user{
-   firstname : string,
-   lastname : string,
    email : string,
    pass : string
 }
 
 export interface type{
    type : string,
-   payload ?: Array<user>
+   payload ?: string
 }
 
 export const Reducer = (state=init,{type,payload}:type) => {
     console.log(type);
     switch(type){
-        case REGISTER_REQUEST : return{
+        case LOGIN_REQUEST : return{
           ...state,
           isLoading : true
         }
-        case REGISTER_SUCCESSFULL : return{
+        case LOGIN_SUCCESSFULL : return{
           ...state,
-          isLoading : false
+          isLoading : false,
+          isAuth : true,
+          token : payload
         }
-        case REGISTER_FAILURE : return{
+        case LOGIN_FAILURE : return{
             ...state,
             isLoading : false,
             isError : true
           }
+         case LOGOUT_USER : return{
+            ...state,
+            isAuth : false,
+            token : ""
+         }
          default: return state
    }
   
