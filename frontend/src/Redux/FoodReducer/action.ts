@@ -20,12 +20,16 @@ export const getFood = (dispatch:any)=>{
     });
 }
 
-export const addFood = (data:user,dispatch:any)=>{
+export const addFood = (data:user,token:string,dispatch:any)=>{
+  const headers = {
+    Authorization:`Bearer ${token}`
+  };
   dispatch({ type: FOOD_REQUEST });
   axios({
     method: 'post',
     url: `http://localhost:8080/dashboard/add`,
     data,
+    headers:headers,
   })
     .then((res) => {
       console.log(res)

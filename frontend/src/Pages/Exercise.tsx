@@ -2,36 +2,46 @@ import React from 'react'
 import SideNavigationBar from '../Components/SideNavigationBar'
 import { addExercise, getExercise } from '../Redux/ExerciseReducer/action'
 import { useDispatch, useSelector } from 'react-redux'
-interface MyReducerState {
-  isError: boolean;
-  isLoading: boolean;
-  data: any[];
-}
-interface RootState {
-  ExerciseReducer: MyReducerState;
-}
-
+  interface MyReducerState {
+    isError: boolean;
+    isLoading: boolean;
+    data: any[]; 
+  }
+  interface RootState {
+    ExerciseReducer: MyReducerState;
+  }
+  interface login {
+    isError:boolean,
+    isloading:boolean,
+    isAuth : boolean,
+    token : string,
+  }
+  
+  interface store {
+    LoginReducer : login
+  }
+  
 const Exercise = () => {
   const [isOpen, setisOpen] = React.useState(true);
-  const [quantity, setQuantity] = React.useState<any>(1)
-  const dispatch = useDispatch()
-  const stores = useSelector((store: RootState) => store.ExerciseReducer.data)
-
-  React.useEffect(() => {
-    getExercise(dispatch)
-  }, [])
+  const [quantity,setQuantity]=React.useState<any>(1)
+const dispatch=useDispatch()
+const stores=useSelector((store:RootState)=>store.ExerciseReducer.data)
+const {token} = useSelector((store:store)=>store.LoginReducer)
+React.useEffect(()=>{
+  getExercise(dispatch)
+},[])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuantity(e.target.value)
   }
 
-  const handleSubmit = (id: String) => {
-    let postData = stores.filter((el) => el._id === id)
-    let data = postData[0]
-    data["Energy"] = data.Energy * (+quantity)
-    console.log(data)
-    addExercise(data, dispatch)
-  }
+const handleSubmit=(id:String)=>{
+let postData=stores.filter((el)=>el._id===id)
+let data=postData[0]
+data["Energy"]=data.Energy*(+quantity)
+console.log(data)
+addExercise(data,token,dispatch)
+}
   return (
     <div className='flex mt-[78px]'>
       <div className='fixed'>

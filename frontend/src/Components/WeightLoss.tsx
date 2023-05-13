@@ -4,7 +4,7 @@ const WeightLoss = () => {
   return (
     <div className=" mt-5 w-4/5 m-auto p-10 text-center items-center">
     <h2 className='text-4xl'>Easy Exercise To Lose Weight</h2>
-    <img  className='w-4/5 h-80 mt-7 mb-7 m-auto' src="https://darebee.com/images/guides/exercise-when-overweight.gif" alt="" />
+    <img  className='w-3/5 h-96 mt-7 mb-7 m-auto' src="https://cdn.pixabay.com/photo/2021/12/18/10/42/weight-loss-6878441_1280.png" alt="" />
     <p className=' m-auto text-lg'>Losing weight can seem like a daunting task. This is especially true if you don’t know which workouts to do, how frequently to do them, and which other lifestyle changes you must make to reach your goal. Most people give up before they even start because the process seems too complicated. The good news is that it’s not as complicated as you might think. You can successfully lose weight by incorporating a few easy workouts into your routine. In this article, we’ll share with you 11 effective routines that you can use to help you reach your goals. We’ll also get into some of the lifestyle changes you can make to lose weight.</p>
         <br />
     <p className=' m-auto text-lg font-semibold'>Here are some of the most common and well known exercise to lose weight:
@@ -36,6 +36,7 @@ const WeightLoss = () => {
             <p className='text-start w-11/12'>Running is a great way to lose weight and get in shape. It’s a high-intensity cardio workout that helps burn fat and calories (10). Running can be done at home or in a gym, and it usually lasts for around 30 minutes. If you’re new to running, start by walking for a few minutes before gradually increasing the pace.</p>
         </li>
     </ul>
+    <h3 className='text-semibold text-2xl underline text-left mt-8 mb-4'>Additional information:</h3>
     <div className='mt-10 flex gap-10'>
     <iframe
       width={734}

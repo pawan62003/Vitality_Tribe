@@ -25,6 +25,7 @@ userRouter.post("/register",async(req,res)=>{
   }
 })
 
+
 userRouter.post("/login",async(req,res)=>{
     try {
        const {email,pass}=req.body;
@@ -48,6 +49,24 @@ userRouter.post("/login",async(req,res)=>{
         res.status(200).send({"err":err.message})
     }
     console.log("last");
+})
+
+
+userRouter.patch("/update/:noteID",async(req,res)=>{
+    const {noteID}=req.params;
+    const note= await UserModel.findOne({_id:noteID})
+    try {
+        if(req.body.userID!==note.userID){
+            res.status(200).send({"msg":`You are not authoried for this action`})
+
+        }else{
+            await ExerciseModel.findByIdAndUpdate({_id:noteID},req.body)
+            res.status(200).send({"msg":`The note with id:${noteID} has been updated`})
+
+        }
+    } catch (err) {
+        res.status(400).send({"err":err.message})
+    }
 })
 
 module.exports={
