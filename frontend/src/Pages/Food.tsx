@@ -11,10 +11,21 @@ import { addFood, getFood } from '../Redux/FoodReducer/action';
     interface RootState {
       FoodReducer: MyReducerState;
     }
+    interface login {
+      isError:boolean,
+      isloading:boolean,
+      isAuth : boolean,
+      token : string,
+    }
+    
+    interface store {
+      LoginReducer : login
+    }
 const Food = () => {
   const [quantity,setQuantity]=React.useState<any>(1)
   const dispatch=useDispatch()
 const stores=useSelector((store:RootState)=>store.FoodReducer.data)
+const {token} = useSelector((store:store)=>store.LoginReducer)
 
 React.useEffect(()=>{
   getFood(dispatch)
@@ -32,7 +43,7 @@ const handleSubmit=(id:String)=>{
   data["Fat"]=data.Fat*(+quantity)
   data["Netcarbs"]=data.Netcarbs*(+quantity)
   console.log(data)
-  addFood(data,dispatch)
+  addFood(data,token,dispatch)
   }
 
   return (

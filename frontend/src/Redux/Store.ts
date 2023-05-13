@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 import {Reducer as SignupReducer} from "./RegisterReducer/Reducer"
 import {Reducer as ExerciseReducer} from "./ExerciseReducer/Reducer"
 import {Reducer as FoodReducer} from "./FoodReducer/Reducer"
+import {Reducer as CommunityReducer} from "./CommunityReducer/Reducer"
 import { AnyAction } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import {Reducer as LoginReducer} from "./LoginReducer/Reducer"
@@ -15,7 +16,8 @@ const RootReducer = combineReducers({
   LoginReducer,
   DashboardReducer,
   ExerciseReducer,
-  FoodReducer
+  FoodReducer,
+  CommunityReducer
 });
 
 export const store = legacy_createStore(RootReducer, applyMiddleware(thunk));
