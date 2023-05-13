@@ -10,8 +10,9 @@ import{
 const init = {
     isError:false,
     isloading:false,
-    isAuth : (JSON.parse(localStorage.getItem("isAuth")||""))||false,
-    token : localStorage.getItem("token")||""
+    isAuth : JSON.parse(localStorage.getItem("isAuth")!)||false,
+    token : localStorage.getItem("token")||"",
+    user : JSON.parse(localStorage.getItem("user")!)||[]
 }
 
 export interface user{
@@ -21,11 +22,11 @@ export interface user{
 
 export interface type{
    type : string,
-   payload ?: string
+   payload ?: any
 }
 
 export const Reducer = (state=init,{type,payload}:type) => {
-    console.log(type);
+    console.log(payload);
     switch(type){
         case LOGIN_REQUEST : return{
           ...state,
@@ -35,7 +36,8 @@ export const Reducer = (state=init,{type,payload}:type) => {
           ...state,
           isLoading : false,
           isAuth : true,
-          token : payload
+          token : payload[0],
+          user : payload[1]
         }
         case LOGIN_FAILURE : return{
             ...state,

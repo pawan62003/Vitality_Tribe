@@ -13,7 +13,7 @@ dashboardRouter.get("/",async(req,res)=>{
 })
 
 dashboardRouter.post("/add",async(req,res)=>{
-   
+   console.log(req.body)
     try{
        let data=new DashboardModel(req.body);
          await data.save();

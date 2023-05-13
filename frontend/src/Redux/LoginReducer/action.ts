@@ -24,8 +24,9 @@ export const loginUser = (state:user,dispatch:any)=>{
   })
     .then((res) => {
       localStorage.setItem("token",res.data.token)
+      localStorage.setItem("user",JSON.stringify([res.data.user]))
       localStorage.setItem("isAuth",JSON.stringify(true));
-      dispatch({ type: LOGIN_SUCCESSFULL })
+      dispatch({ type: LOGIN_SUCCESSFULL,payload : [res.data.token,res.data.user] })
       alert(res.data.msg) 
     })
     .catch((err) => {
