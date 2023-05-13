@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 
-const socialSchema = mongoose.Schema({
+
+const socialSchema=mongoose.Schema({
     userID: String,
     user: String,
     Energy: { type: Number },
@@ -10,16 +11,15 @@ const socialSchema = mongoose.Schema({
     Fat: { type: Number },
     Netcarbs: { type: Number },
     time: { type: Number },
-    quantity: { type: Number, default: 1 },
     caloriesburnt: { type: Number },
     caloriesremaining: { type: Number },
     caloriesconsumed: { type: Number } ,
     Energy_percentage:{type : Number},
     Protein_percentage:{type : Number},
     Fat_percentage:{type : Number},
-    Netcarbs_percentage:{type : Number},
-}, {
-    versionKey: false
+    Netcarbs_percentage:{type : Number}, 
+},{
+    versionKey:false                   
 })
 
 

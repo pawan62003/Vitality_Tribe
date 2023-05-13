@@ -4,7 +4,7 @@ const Depression = () => {
   return (
     <div className=" mt-5 w-4/5 m-auto p-10 text-center items-center">
     <h2 className='text-4xl'>Exercise To Relieve Anxiety and Depression</h2>
-    <img  className='w-4/5 h-80 mt-7 mb-7 m-auto' src="https://darebee.com/images/guides/fix-anxiety-with-exercise.gif" alt="" />
+    <img  className='w-4/5 h-96 mt-7 mb-7 m-auto' src="https://experiencelife.lifetime.life/wp-content/uploads/2020/10/alleviate-depression-anxiety-card.jpg" alt="" />
     <p className=' m-auto text-lg'>"Exercise won't cure anxiety or depression, but the physical and psychological benefits can improve the symptoms,” explains Sally R. Connolly, LCSW, a therapist at the Couples Clinic of Louisville in Kentucky. "Research shows that at least 30 minutes of exercise three to five days a week can significantly make a difference.” Some studies have suggested that regular exercise can help alleviate anxiety as much as anxiety medications, and the anxiety-relieving effects of exercise may last longer than those of drugs.</p>
         <br />
     <p className=' m-auto text-lg font-semibold'>Here are few exercises which may help you improve your mental health:
@@ -36,6 +36,7 @@ const Depression = () => {
             <p className='text-start w-11/12'>Whether you’re taking a Zumba class, salsa dancing with a partner, or just grooving out to some music in the comfort of your own home, dancing can help can help relieve stress and anxiety. Studies show that dance classes can reduce anxiety more so than regular physical education. In addition to being physically active, many people see dance as a form of personal expression, which can help strengthen the connection between the mind and the body. </p>
         </li>
     </ul>
+    <h3 className='text-semibold text-2xl underline text-left mt-8 mb-4'>Additional information:</h3>
     <div className='mt-10 flex gap-10'>
     <iframe
       width={734}

@@ -4,7 +4,7 @@ const Brain = () => {
   return (
     <div className=" mt-5 w-4/5 m-auto p-10 text-center items-center">
         <h2 className='text-4xl'>How Exercise Improves Our Brain</h2>
-        <img  className='w-4/5 h-80 mt-7 mb-7 m-auto' src="https://darebee.com/images/fitness/exercise-improves-brain.jpg" alt="" />
+        <img  className='w-3/5 h-96 mt-7 mb-7 m-auto' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSN5TvAazP_mLqjXSmUcklansBmDExrpAX4A&usqp=CAU" alt="" />
         <p className=' m-auto text-lg'>In a study done at the University of British Columbia, researchers found that regular aerobic exercise, the kind that gets your heart and your sweat glands pumping, appears to boost the size of the hippocampus, the brain area involved in verbal memory and learning. Resistance training, balance and muscle toning exercises did not have the same results.The finding comes at a critical time. Researchers say one new case of dementia is detected every four seconds globally. They estimate that by the year 2050, more than 115 million people will have dementia worldwide.</p>
             <br />
         <p className=' m-auto text-lg font-semibold'>Here are some of the most common and usesful exercise which may help you improve your brain funtionality:
@@ -36,6 +36,7 @@ const Brain = () => {
                 <p className='text-start w-11/12'>Interval training—a workout where you alternate between two activities or two levels of intensity—has shown some increase in BDNF (that key protein for neuron functioning), which helps with learning and memory. However, finding that sweet spot—getting in a good workout without overly straining and draining your system—is key. </p>
             </li>
         </ul>
+        <h3 className='text-semibold text-2xl underline text-left mt-8 mb-4'>Additional information:</h3>
         <div className='mt-10 flex gap-10'>
         <iframe
       width={550}
