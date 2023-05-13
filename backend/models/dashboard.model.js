@@ -10,8 +10,7 @@ const dashboardSchema=mongoose.Schema({
       Fat:{type:Number},
       Netcarbs:{type:Number},
       type:{type:String},
-      time:{type:Number},
-      quantity:{type:Number,default:1}      
+      time:{type:Number},     
 },{
     versionKey:false                   
 })
