@@ -4,7 +4,7 @@ const Water = () => {
   return (
     <div className=" mt-5 w-4/5 m-auto p-10 text-center items-center">
     <h2 className='text-4xl'>Benefits Of Drinking More Water</h2>
-    <img  className='w-4/5 h-80 mt-7 mb-7 m-auto' src="https://darebee.com/images/nutrition/drink-more-water.jpg" alt="" />
+    <img  className=' w-4/6 h-96 mt-7 mb-7 m-auto' src="https://c8.alamy.com/comp/MPD408/cartoon-bottle-of-water-and-glasses-vector-illustrationglass-of-water-MPD408.jpg" alt="" />
     <p className=' m-auto text-lg'>What is water? Water is a colourless liquid composed of hydrogen and oxygen (H20). It is vital for life, although it supplies no calories. Drinking adequate amounts of water, or staying hydrated, is the first rule of health and nutrition. Our bodies can supposedly last weeks without food, yet just a few days without water. This makes sense when you realise our bodies are made up of about 60% water and that being dehydrated can affect us both physically and mentally.</p>
         <br />
     <p className=' m-auto text-lg font-semibold'>Here are top 5 benefits of water :
@@ -36,6 +36,7 @@ const Water = () => {
             <p className='text-start w-10/12'>Poor hydration may increase the risk of developing, or the recurrence of kidney stones, in some individuals. Studies have also shown that drinking adequate amounts of water may reduce the risk of bladder infections and urinary tract infections, including cystitis, in women. </p>
         </li>
     </ul>
+    <h3 className='text-semibold text-2xl underline text-left mt-8 mb-4'>Additional information:</h3>
     <div className='mt-10 flex gap-10'>
     <iframe
       width={734}
