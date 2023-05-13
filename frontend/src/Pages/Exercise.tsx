@@ -10,12 +10,22 @@ import { useDispatch, useSelector } from 'react-redux'
   interface RootState {
     ExerciseReducer: MyReducerState;
   }
+  interface login {
+    isError:boolean,
+    isloading:boolean,
+    isAuth : boolean,
+    token : string,
+  }
+  
+  interface store {
+    LoginReducer : login
+  }
   
 const Exercise = () => {
   const [quantity,setQuantity]=React.useState<any>(1)
 const dispatch=useDispatch()
 const stores=useSelector((store:RootState)=>store.ExerciseReducer.data)
-
+const {token} = useSelector((store:store)=>store.LoginReducer)
 React.useEffect(()=>{
   getExercise(dispatch)
 },[])
@@ -29,7 +39,7 @@ let postData=stores.filter((el)=>el._id===id)
 let data=postData[0]
 data["Energy"]=data.Energy*(+quantity)
 console.log(data)
-addExercise(data,dispatch)
+addExercise(data,token,dispatch)
 }
   return (
     <div className="flex">

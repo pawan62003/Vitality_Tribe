@@ -15,7 +15,7 @@ interface MyReducerState {
 
 const UserDetails = () => {
     const [userData,setUserData]=useState<any>({});
-    const store=useSelector((store:RootState)=>{store.RegisterReducer.data})
+    // const store=useSelector((store:RootState)=>{store.RegisterReducer.data})
     const dispatch=useDispatch()
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
         let {name,value}=e.target;
