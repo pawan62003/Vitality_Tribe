@@ -7,9 +7,13 @@ import {Reducer as ExerciseReducer} from "./ExerciseReducer/Reducer"
 import {Reducer as FoodReducer} from "./FoodReducer/Reducer"
 import { AnyAction } from 'redux'
 import { ThunkAction } from 'redux-thunk'
+import {Reducer as LoginReducer} from "./LoginReducer/Reducer"
+import {Reducer as DashboardReducer} from "./DashboardReducer/Reducer"
 
 const RootReducer = combineReducers({
   SignupReducer,
+  LoginReducer,
+  DashboardReducer,
   ExerciseReducer,
   FoodReducer
 });

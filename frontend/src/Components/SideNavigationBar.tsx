@@ -8,6 +8,8 @@ import {RiLogoutBoxRLine} from "react-icons/ri"
 
 
 import { Link } from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import { logoutUser } from '../Redux/LoginReducer/action'
 const Menus = [
     { title: "Dashboard", link: "/Dashboard", icon: <RxDashboard /> },
     { title: "Food", link: "/food", icon: <MdFastfood /> },
@@ -18,8 +20,9 @@ const Menus = [
 
 const SideNavigationBar = () => {
     const [isOpen, setisOpen] = React.useState(true);
+    const dispatch = useDispatch()
     const handleClick = ()=>{
-        
+        logoutUser(dispatch)
     }
     return (
         <div className={`bg-[#081747]  h-screen p-5 ${isOpen ? "w-72" : "w-20"} duration-500  pt-8 relative`}>
