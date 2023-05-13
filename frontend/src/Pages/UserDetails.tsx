@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Redux/RegisterReducer/action";
 
 interface MyReducerState {
-    isError: boolean;
-    isLoading: boolean;
-    data: any[]; 
+    isError:boolean,
+    isloading:boolean,
+    isAuth :boolean,
+    token : String ,
+    user : any
   }
   interface RootState {
-    RegisterReducer: MyReducerState;
+    LoginReducer: MyReducerState;
   }
   
 
@@ -24,7 +26,7 @@ const UserDetails = () => {
         setUserData({...userData,[name]:value})
         // setUserData(userData)
       }
-      console.log(userData);
+      console.log("store",store);
         
       React.useEffect(()=>{
         // addUser(dispatch)
