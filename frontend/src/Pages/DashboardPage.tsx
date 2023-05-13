@@ -3,6 +3,8 @@ import SideNavigationBar from '../Components/SideNavigationBar'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDashboardItems } from '../Redux/DashboardReducer/action'
 import Stats from '../Components/Stats'
+import Example from '../Components/PieChart'
+import Charts from '../Components/PieChart'
 
 interface login {
   isError: boolean,
@@ -172,11 +174,11 @@ const DashboardPage = () => {
         </div>
         <div>
           {
-            dashboard.length != 0 ? <div>
+            dashboard.length != 0 ? <div >
               <Stats obj={state}/>
-              <div id="charts">
 
-              </div>
+                 <Charts/>
+              
             </div>:
             <div>
 
