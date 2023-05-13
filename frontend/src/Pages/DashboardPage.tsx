@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SideNavigationBar from '../Components/SideNavigationBar'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDashboardItems } from '../Redux/DashboardReducer/action'
+import Stats from '../Components/Stats'
 
 interface login {
   isError: boolean,
@@ -29,6 +30,10 @@ const initialObj = {
   userID: "",
   user: "",
   Energy: 0,
+  Energy_percentage: 0,
+  Protein_percentage: 0,
+  Fat_percentage: 0,
+  Netcarbs_percentage: 0,
   Protein: 0,
   Fat: 0,
   Netcarbs: 0,
@@ -70,30 +75,30 @@ const DashboardPage = () => {
       }, 0);
       let totalprotein = dashboard.reduce((sum: Number, current: any) => {
         let protein
-        if(current.type == "food"){
-           protein = current.Protein;
-        }else{
-           protein = 0
+        if (current.type == "food") {
+          protein = current.Protein;
+        } else {
+          protein = 0
         }
         return sum + protein;
       }, 0);
       let proteinPercent = ((totalprotein / 177.6) * 100).toFixed(0);
       let totalNetcarbs = dashboard.reduce((sum: Number, current: any) => {
         let Netcarbs
-        if(current.type == "food"){
-           Netcarbs = current.Netcarbs;
-        }else{
-           Netcarbs = 0
+        if (current.type == "food") {
+          Netcarbs = current.Netcarbs;
+        } else {
+          Netcarbs = 0
         }
         return sum + Netcarbs;
       }, 0);
       let NetcarbsPercent = ((totalNetcarbs / 319.6) * 100).toFixed(0);
       let totalFat = dashboard.reduce((sum: Number, current: any) => {
-         let Netcarbs
-        if(current.type == "food"){
-           Netcarbs = current.Netcarbs;
-        }else{
-           Netcarbs = 0
+        let Netcarbs
+        if (current.type == "food") {
+          Netcarbs = current.Netcarbs;
+        } else {
+          Netcarbs = 0
         }
         return sum + Netcarbs;
       }, 0);
@@ -101,8 +106,22 @@ const DashboardPage = () => {
 
       let FatPercent = ((totalFat / 94.7) * 100).toFixed(0);
 
-
-      console.log(caloriesconsumed, caloriesremaining, caloriesburnt,energyPercent,totalprotein,proteinPercent,NetcarbsPercent,totalFat,FatPercent);
+      setState({
+        userID: user._id,
+        user: `${user.firstname} ${user.lastname}`,
+        Energy: caloriesconsumed,
+        Energy_percentage: +energyPercent,
+        Protein: totalprotein,
+        Protein_percentage: +proteinPercent,
+        Fat: totalFat,
+        Fat_percentage: +FatPercent,
+        Netcarbs: totalNetcarbs,
+        Netcarbs_percentage: +NetcarbsPercent,
+        quantity: { type: Number, default: 1 },
+        caloriesburnt: caloriesburnt,
+        caloriesremaining: caloriesremaining,
+        caloriesconsumed: caloriesconsumed
+      })
     }
   }
 
@@ -114,11 +133,56 @@ const DashboardPage = () => {
   useEffect(() => {
     Calculator(dashboard)
   }, [dashboard])
-  return (
-    <div>
-      <SideNavigationBar />
-      <div>
 
+  console.log(state);
+  return (
+    <div className='flex'>
+      <SideNavigationBar />
+      <div className='w-3/4 m-8'>
+        <h1 className='text-center text-2xl font-bold py-4'>YOUR DASHBOARD</h1>
+        <div className='w-full shadow-lg rounded-[5px] p-6 border border-gray-400 overflow-y-scroll '>
+          <table className="min-w-full divide-y divide-gray-200 ">
+            <thead className='border-b-black border-b'>
+              <th>Name</th>
+              <th>Quantity(cup for food/min for exercise)</th>
+              <th>Energy</th>
+            </thead>
+            <tbody id="dashboardAppend">
+              {
+                dashboard.length == 0 ? <tr>
+                  No products in dashboard. addmore food and exercises
+                </tr> : dashboard.map((item: any) => {
+                  if (item.type == "food") {
+                    return <tr>
+                      <td>{item.name}</td>
+                      <td>{item.quantity}</td>
+                      <td>{item.Energy}</td>
+                    </tr>
+                  } else {
+                    return <tr>
+                      <td>{item.name}</td>
+                      <td>{item.quantity}</td>
+                      <td>{(-1 * item.Energy)}</td>
+                    </tr>
+                  }
+                })
+              }
+            </tbody>
+          </table>
+        </div>
+        <div>
+          {
+            dashboard.length != 0 ? <div>
+              <Stats obj={state}/>
+              <div id="charts">
+
+              </div>
+            </div>:
+            <div>
+
+            </div>
+        }
+        </div>
       </div>
     </div>
   )

@@ -5,8 +5,6 @@ import { MdFastfood } from "react-icons/md"
 import {GiCycling} from "react-icons/gi"
 import {CgCommunity,CgProfile} from "react-icons/cg"
 import {RiLogoutBoxRLine} from "react-icons/ri"
-
-
 import { Link } from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { logoutUser } from '../Redux/LoginReducer/action'
