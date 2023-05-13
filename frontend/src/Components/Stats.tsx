@@ -8,11 +8,11 @@ const Stats = ({obj}:any) => {
     <div className='flex justify-around my-10 border-r-10 shadow-xl p-5'>
        <div  className='flex justify-between text-xl w-[50%] text-bold items-center  border-r-2 border-r-black p-[20px]' >
                 <div  >
-                  <h1 className='text-4xl text-[#44d07b] text-bold'><span id="totalcalories">{obj.caloriesconsumed}</span>/2841</h1>
+                  <h1 className='text-4xl text-[#44d07b] text-bold'><span id="totalcalories">{obj.caloriesconsumed}</span>/2481</h1>
                   <h3 className='text-xl text-bold'>Total Calories<br/> Consumed</h3>
                 </div>
                 <div>
-                    <h1 className='text-4xl text-red-600 text-bold'><span id="caloriesremaining">{obj.caloriesremaining}</span>/2841</h1>
+                    <h1 className='text-4xl text-red-600 text-bold'><span id="caloriesremaining">{obj.caloriesremaining}</span>/2481</h1>
                     <h3 className='text-xl text-bold'>Total Calories<br/> Remaining</h3>
                 </div>
                 <div>

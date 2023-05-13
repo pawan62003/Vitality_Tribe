@@ -5,6 +5,9 @@ import { getDashboardItems } from '../Redux/DashboardReducer/action'
 import Stats from '../Components/Stats'
 import Example from '../Components/PieChart'
 import Charts from '../Components/PieChart'
+import Home from './Home'
+import Chart from '../Components/PieChart'
+import StackedBarChart from '../Components/StackedChart'
 
 interface login {
   isError: boolean,
@@ -46,10 +49,31 @@ const initialObj = {
 }
 
 const DashboardPage = () => {
+  const [isOpen, setisOpen] = React.useState(true);
   const [state, setState] = useState(initialObj)
   const { token, user } = useSelector((store: store) => store.LoginReducer);
   const { dashboard } = useSelector((store: dashboardstore) => store.DashboardReducer);
   const dispatch = useDispatch();
+  const data1 = [
+    { name: 'Total Calories Consumed', value: state.caloriesconsumed },
+    { name: 'Target Calories', value: 2481 - state.caloriesconsumed },
+  ];
+
+  const data2 = [
+    { name: 'Total Calories Remaining', value: state.caloriesremaining },
+    { name: 'Target Calories', value: 2481 - state.caloriesremaining },
+  ];
+
+  const data3 = [
+    { name: 'Total Calories Burnt', value: state.caloriesburnt },
+    { name: 'Target Calories Consumed', value: state.caloriesconsumed },
+  ];
+
+  const data4 = [
+    {name : "Protein" , value1 : state.Protein ,value2 : 177},
+    {name : "Netcarbs" , value1 : state.Netcarbs ,value2 : 319},
+    {name : "Fat" , value1 : state.Fat ,value2 : 94},
+  ]
 
   const Calculator = (dashboard: any) => {
     if (dashboard.length != 0) {
@@ -64,7 +88,7 @@ const DashboardPage = () => {
       }, 0);
       let energyPercent = ((caloriesconsumed / 2481) * 100).toFixed(0);
 
-      let caloriesremaining = 2184 - caloriesconsumed;
+      let caloriesremaining = 2481 - caloriesconsumed;
 
       let caloriesburnt = dashboard.reduce((sum: Number, current: any) => {
         let calories
@@ -127,6 +151,10 @@ const DashboardPage = () => {
     }
   }
 
+  const handleClick = ()=>{
+
+  }
+
   useEffect(() => {
     getDashboardItems(token, user._id, dispatch)
   }, [])
@@ -138,9 +166,11 @@ const DashboardPage = () => {
 
   console.log(state);
   return (
-    <div className='flex'>
-      <SideNavigationBar />
-      <div className='w-3/4 m-8'>
+    <div className='flex mt-[78px]'>
+      <div className='fixed'>
+        <SideNavigationBar obj={{ isOpen, setisOpen }} />
+      </div>
+      <div className={`w-3/4 my-8 ${isOpen ? "ml-72" : "ml-20"} duration-500`}>
         <h1 className='text-center text-2xl font-bold py-4'>YOUR DASHBOARD</h1>
         <div className='w-full shadow-lg rounded-[5px] p-6 border border-gray-400 overflow-y-scroll '>
           <table className="min-w-full divide-y divide-gray-200 ">
@@ -175,15 +205,35 @@ const DashboardPage = () => {
         <div>
           {
             dashboard.length != 0 ? <div >
-              <Stats obj={state}/>
+              <Stats obj={state} />
+              <div className=''>
+                <div className="flex justify-end mr-20 mb-[16px]" onClick={handleClick}>
+                  <button className='p-3  bg-slate-900 text-white'>Share your Progress</button>
+                </div>
+                <div className='Flex-column border justify-center items-center'>
+                  <p className="text-left text-bold text-4xl">Total Calories Consumed</p>
+                  <Chart data={data1} />
+                </div>
+                <div className='Flex-column border justify-center items-center'>
+                  <p className="text-left text-bold text-4xl">Total Calories Remaining</p>
+                  <Chart data={data2} />
+                </div>
+                <div className='Flex-column border justify-center items-center'>
+                  <p className="text-left text-bold text-4xl">Total Calories Burnt</p>
+                  <Chart data={data3} />
+                </div>
+                <div>
+                  <p className="text-left text-bold text-4xl mb-10">Micro Nutrition</p>
+                  <StackedBarChart data={data4} />
+                </div>
+              </div>
 
-                 <Charts/>
-              
-            </div>:
-            <div>
 
-            </div>
-        }
+            </div> :
+              <div>
+
+              </div>
+          }
         </div>
       </div>
     </div>
