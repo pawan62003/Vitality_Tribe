@@ -9,7 +9,6 @@ import{
 const init = {
     isError:false,
     isloading:false,
-    data:[]
 }
 
 export interface user{
@@ -27,7 +26,19 @@ export interface type{
 export const Reducer = (state=init,{type,payload}:type) => {
     console.log(type);
     switch(type){
-           
+        case REGISTER_REQUEST : return{
+          ...state,
+          isLoading : true
+        }
+        case REGISTER_SUCCESSFULL : return{
+          ...state,
+          isLoading : false
+        }
+        case REGISTER_FAILURE : return{
+            ...state,
+            isLoading : false,
+            isError : true
+          }
          default: return state
    }
   
