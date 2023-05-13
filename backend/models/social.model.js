@@ -1,4 +1,5 @@
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
+
 
 
 const socialSchema=mongoose.Schema({
@@ -22,8 +23,8 @@ const socialSchema=mongoose.Schema({
 })
 
 
-const SocialModel=mongoose.model("social",socialSchema);
+const SocialModel = mongoose.model("social", socialSchema);
 
-module.exports={
+module.exports = {
     SocialModel
 }
