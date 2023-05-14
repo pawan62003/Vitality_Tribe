@@ -34,6 +34,7 @@ export const addExercise = (data:user,token:string,dispatch:any)=>{
     .then((res) => {
       console.log(res)
       dispatch({ type: POST_EXERCISE_SUCCESSFULL })
+      alert("Added Exercise to Dashboard");
     })
     .catch((err) => {
       console.log(err);
