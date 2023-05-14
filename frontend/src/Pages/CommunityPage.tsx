@@ -2,6 +2,7 @@ import React from 'react'
 import SideNavigationBar from '../Components/SideNavigationBar'
 import { getCommunity } from '../Redux/CommunityReducer/action'
 import { useDispatch, useSelector } from 'react-redux'
+import Stats from '../Components/Stats';
 
 
 interface MyReducerState {
@@ -13,6 +14,20 @@ interface MyReducerState {
     CommunityReducer: MyReducerState;
   }
 const CommunityPage = () => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+ const [data,setData]=React.useState({})
+
+  const handleOpen=(el:any)=>{
+    setData(el)
+    handleOpenModal()
+  }
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
     const dispatch=useDispatch()
     const stores=useSelector((store:RootState)=>store.CommunityReducer.data)
     console.log(stores)
@@ -42,7 +57,17 @@ alt="dummy" className="h-[150px] w-[150px] object-cover  mb-4 m-auto" />
 <div className="flex">
 
 <div>
-<button className="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600">View Info</button>
+{/* <button className="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600" onClick={}>View Info</button> */}
+
+<button
+        className="px-4 py-2 ml-2 rounded-md bg-blue-500 text-white hover:bg-blue-600"
+        onClick={()=>handleOpen(el)}
+      >
+        View Info
+      </button>
+
+      
+
  <button className="px-4 py-2 ml-2 rounded-md bg-blue-500 text-white hover:bg-blue-600">Compare</button>
 </div>
  
@@ -50,9 +75,49 @@ alt="dummy" className="h-[150px] w-[150px] object-cover  mb-4 m-auto" />
 </div>
             
             )}
+
             </div>
            
         </div>
+        {isModalOpen && (
+        <div className="modal fixed top-100 left-20 w-full h-full z-50">
+          <div className="modal-overlay absolute w-full h-full bg-white-900 opacity-50"></div>
+
+          <div className="modal-container bg-white w-11/12 md:max-w-6xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
+            <div className="modal-content py-4 text-left px-6">
+              <div className="flex justify-between items-center pb-3">
+                <p className="text-4xl font-bold">User Info</p>
+                <div
+                  className="modal-close cursor-pointer z-50"
+                  onClick={handleCloseModal}
+                >
+                  <svg
+                    className="fill-current text-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                  >
+                    <path d="M18 1.5L16.5 0 9 7.5 1.5 0 0 1.5 7.5 9 0 16.5 1.5 18 9 10.5 16.5 18 18 16.5 10.5 9z" />
+                  </svg>
+                </div>
+              </div>
+
+              <Stats obj={data}/>
+              
+
+              <div className="flex justify-end pt-2">
+                {/* <button
+                  className="modal-close px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400"
+                  onClick={handleCloseModal}
+                >
+                  Close
+                </button> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

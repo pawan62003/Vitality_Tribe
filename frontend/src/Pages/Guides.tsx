@@ -14,8 +14,8 @@ const Guides = () => {
         <h2 className=' mt-5 font-bold text-center text-3xl underline text-blue-700 hover:text-blue-800'>GUIDES</h2>
         </div>
 
-        <div className=' flex gap-5 w-10/12 m-auto'>
-             <div className=' flex-1 pt-2 bg-white border border-gray-200 rounded-lg shadow'>
+        <div className=' flex gap-5 w-10/12 m-auto '>
+             <div className=' flex-1 pt-2 bg-white border border-gray-200 rounded-lg shadow '>
                 <h5 className="mb-2 text-center p- text-2xl font-bold tracking-tight text-gray-900">How Exercise Improves Our Brain</h5>
                 <p className='mb-3 pl-2 pr-2 text-center font-normal text-gray-700 dark:text-gray-700'>Did you know it's good for your brain too? Physical activity can help you think, learn, problem-solve. It can improve memory and reduce anxiety or depression. Regular physical activity can also reduce your risk of cognitive decline, including dementia</p>
                <div className='flex flex-col justify-center items-center'>
@@ -37,7 +37,7 @@ const Guides = () => {
                 <h5 className="mb-2 text-center p- text-2xl font-bold tracking-tight text-gray-900">Exercise To Relieve Anxiety and Depression</h5>
                 <p className='mb-3 pl-2 pr-2 text-center font-normal text-gray-700 dark:text-gray-700'>The external world is beyond our control. But that doesn’t have to mean control is beyond us. At this age adn time, everyone is suffering from little bit of depression. Here are some exercise to take better care od our mental health</p>
                <div className='flex flex-col justify-center items-center'>
-               <button onClick={()=>setArticle("depression")} className=" ml-4 mb-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Read More
+               <button onClick={()=>setArticle("depression")} className="mt-6 ml-4 mb-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Read More
                     <svg aria-hidden="true" className=" align-middle w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </button>
                </div>
