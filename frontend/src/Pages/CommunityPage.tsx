@@ -6,14 +6,15 @@ import Stats from '../Components/Stats';
 
 
 interface MyReducerState {
-    isError: boolean;
-    isLoading: boolean;
-    data: any[]; 
-  }
-  interface RootState {
-    CommunityReducer: MyReducerState;
-  }
+  isError: boolean;
+  isLoading: boolean;
+  data: any[];
+}
+interface RootState {
+  CommunityReducer: MyReducerState;
+}
 const CommunityPage = () => {
+
   const [isModalOpen, setIsModalOpen] = React.useState(false);
  const [data,setData]=React.useState({})
 
@@ -35,11 +36,19 @@ const CommunityPage = () => {
         getCommunity(dispatch)
       },[])
       
+
   return (
-    <div className="flex">
-      <div>
-        <SideNavigationBar/>
+    <div className='flex mt-[78px]'>
+      <div className='fixed'>
+        <SideNavigationBar obj={{ isOpen, setisOpen }}/>
+      </div>
+      <div className='mx-auto ${isOpen ? "ml-72" : "ml-20"} duration-500'>
+        <div>
+          <h1 className="text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-8 ">
+            Community
+          </h1>
         </div>
+
         <div className='mx-auto '>
             <div>
             <h1 className="text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-8 ">
@@ -77,7 +86,8 @@ alt="dummy" className="h-[150px] w-[150px] object-cover  mb-4 m-auto" />
             )}
 
             </div>
-           
+
+          )}
         </div>
         {isModalOpen && (
         <div className="modal fixed top-100 left-20 w-full h-full z-50">
@@ -118,6 +128,7 @@ alt="dummy" className="h-[150px] w-[150px] object-cover  mb-4 m-auto" />
           </div>
         </div>
       )}
+
     </div>
   )
 }

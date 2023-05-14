@@ -1,15 +1,17 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 export default function Navbar() {
+  const navigate=useNavigate()
   return (
-    <div className='bg-[#4f46e5] text-white font-extrabold'>
-    <div className='flex justify-between w-4/5 py-2 m-auto border border-solid border-[red] items-center'>
+    <div className='bg-[#4f46e5] text-white font-extrabold w-[100%] fixed top-0 p-4 z-10'>
+    <div className='flex justify-between w-[95%] py-2 m-auto border border-solid border-[red] items-center'>
       <div>
         <p className=' text-[larger]'>VITALITY TRIBE</p>
       </div>
       <div className='flex justify-between gap-10 text-[smaller]'>
         <Link to={"/workout"}><p>WORKOUT</p></Link>
+        <Link to={"/guides"}><p>GUIDES</p></Link>
         <Link to={"/blogs"}><p>BLOGS</p></Link>
         <Link to={"/dashboard"}><p>DASHBOARD</p></Link>
         <Link to={"/register"}><p>REGISTER</p></Link>

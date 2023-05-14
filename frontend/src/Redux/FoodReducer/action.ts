@@ -34,6 +34,7 @@ export const addFood = (data:user,token:string,dispatch:any)=>{
     .then((res) => {
       console.log(res)
       dispatch({ type: POST_FOOD_SUCCESSFULL })
+      alert("Added Food to Dashboard");
     })
     .catch((err) => {
       console.log(err);

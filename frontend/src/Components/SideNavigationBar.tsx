@@ -16,15 +16,16 @@ const Menus = [
     { title: "User Profile", link: "/userdetails", icon: <CgProfile />, spacing: true },
 ]
 
-const SideNavigationBar = () => {
-    const [isOpen, setisOpen] = React.useState(true);
+const SideNavigationBar = ({obj}:any) => {
     const dispatch = useDispatch()
     const handleClick = ()=>{
         logoutUser(dispatch)
     }
     return (
+
         <div className={`bg-[#081747]  h-full p-5 ${isOpen ? "w-72" : "w-20"} duration-500  pt-8 relative`}>
             <BsArrowLeftShort className={`bg-white text-[#081747] text-3xl rounded-full absolute -right-3 top-9 border ${!isOpen && "rotate-180"} border-v-blue cussor-pointer`} onClick={() => setisOpen((prev) => !prev)} />
+
             <ul className='pt-2'>
                 {Menus.map((menu, index) => {
                     return <>
@@ -34,12 +35,12 @@ const SideNavigationBar = () => {
                                 className={`text-gray-300 text-lg flex items-center duration-500
                                 
                                  gap-x-4 cursor-pointer p-2 hover:bg-white rounded-md   hover:text-black ${menu.spacing ? "mt-10" : "mt-2"}`}>
-                                <span className={`p-2 ${!isOpen ? "w-4" : "w-2.5"}`}>
+                                <span className={`p-2 ${!obj.isOpen ? "w-4" : "w-2.5"}`}>
                                     {
                                         menu.icon
                                     }
                                 </span>
-                                <span className={`${!isOpen && "hidden"}`}>
+                                <span className={`${!obj.isOpen && "hidden"}`}>
                                     {menu.title}
                                 </span>
                             </li>
@@ -48,15 +49,16 @@ const SideNavigationBar = () => {
                 })}
                 <li   onClick={()=>handleClick()}
                                 className={`text-gray-300 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-white rounded-md duration-500   hover:text-black `}>
-                                <span className={`p-2 ${!isOpen ? "w-4" : "w-2.5"}`}>
+                                <span className={`p-2 ${!obj.isOpen ? "w-4" : "w-2.5"}`}>
                                 <RiLogoutBoxRLine/>
                                 </span>
-                                <span className={`${!isOpen && "hidden"}`}>
+                                <span className={`${!obj.isOpen && "hidden"}`}>
                                     LOGOUT
                                 </span>
                             </li>
             </ul>
         </div>
+        
     )
 }
 
