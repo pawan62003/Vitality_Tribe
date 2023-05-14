@@ -26,7 +26,6 @@ const UserDetails = () => {
         setUserData({...userData,[name]:value})
         // setUserData(userData)
       }
-      console.log("store",store);
         
       React.useEffect(()=>{
         // addUser(dispatch)

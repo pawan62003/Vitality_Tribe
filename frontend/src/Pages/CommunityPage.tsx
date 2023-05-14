@@ -13,6 +13,7 @@ interface MyReducerState {
     CommunityReducer: MyReducerState;
   }
 const CommunityPage = () => {
+  const [isOpen, setisOpen] = React.useState(true);
     const dispatch=useDispatch()
     const stores=useSelector((store:RootState)=>store.CommunityReducer.data)
     console.log(stores)
@@ -21,11 +22,11 @@ const CommunityPage = () => {
       },[])
       
   return (
-    <div className="flex">
-      <div>
-        <SideNavigationBar/>
-        </div>
-        <div className='mx-auto '>
+    <div className='flex mt-[78px]'>
+      <div className='fixed'>
+        <SideNavigationBar obj={{ isOpen, setisOpen }} />
+      </div>
+        <div className='mx-auto ${isOpen ? "ml-72" : "ml-20"} duration-500'>
             <div>
             <h1 className="text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-8 ">
         Community

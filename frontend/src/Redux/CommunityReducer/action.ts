@@ -11,6 +11,7 @@ export const getCommunity = (dispatch:any)=>{
     url: `http://localhost:8080/social`
   })
     .then((res) => {
+      console.log(res);
       dispatch({ type: COMMUNITY_SUCCESSFULL, payload:res.data})
     })
     .catch((err) => {
