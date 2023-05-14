@@ -43,6 +43,26 @@ export const logoutUser = (dispatch:any)=>{
   localStorage.removeItem("isAuth");
   dispatch({type: LOGOUT_USER})
 }
+
+export const updateUser = (state:any,id:string,dispatch:any)=>{
+  const data = {details:state};
+  dispatch({ type: LOGIN_REQUEST });
+  axios({
+    method: 'patch',
+    url: `http://localhost:8080/users/update/${id}`,
+    data:data,
+  })
+    .then((res) => {
+      console.log(res)
+      dispatch({ type: LOGIN_SUCCESSFULL,payload:[res.data.token,res.data.user] })
+      alert(res.data.msg) 
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: LOGIN_FAILURE,
+      })
+    });
+}
  
 
  

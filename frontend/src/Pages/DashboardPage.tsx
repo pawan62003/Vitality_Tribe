@@ -3,6 +3,7 @@ import SideNavigationBar from '../Components/SideNavigationBar'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDashboardItems } from '../Redux/DashboardReducer/action'
 import Stats from '../Components/Stats'
+
 import Example from '../Components/PieChart'
 import Charts from '../Components/PieChart'
 import Home from './Home'
@@ -228,7 +229,6 @@ const DashboardPage = () => {
                   <StackedBarChart data={data4} />
                 </div>
               </div>
-
 
             </div> :
               <div>

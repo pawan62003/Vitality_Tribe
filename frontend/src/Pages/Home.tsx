@@ -11,6 +11,7 @@ const chartData = [
 ];
 const Home = () => {
   return (
+
     <div className="bg-gray-100">
       <header className="bg-blue-500 py-4">
         <div className="container mx-auto px-4">
@@ -70,5 +71,6 @@ const Home = () => {
         </main>
         </div>
   )}
+
 
 export default Home

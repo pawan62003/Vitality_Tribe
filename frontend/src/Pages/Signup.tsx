@@ -3,7 +3,6 @@ import React, { useState } from "react"
 import { addUser } from "../Redux/RegisterReducer/action"
 import { useDispatch } from "react-redux"
 import {user} from "../Redux/RegisterReducer/Reducer"
-import { useToast } from '@chakra-ui/react'
 const initObj = {
   firstname: "",
   lastname: "",
@@ -14,7 +13,6 @@ export default function Signup() {
 
   const [state, setState] = useState(initObj)
   const dispatch = useDispatch()
-  const toast = useToast();
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
     let {name,value} = e.target;
@@ -23,7 +21,7 @@ export default function Signup() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addUser(state,dispatch,toast)
+    addUser(state,dispatch)
   }
   return (
     <>

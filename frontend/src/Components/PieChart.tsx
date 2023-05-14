@@ -1,3 +1,4 @@
+
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 
@@ -28,3 +29,4 @@ const Chart = ({data}:any) => {
 }
 
 export default Chart;
+

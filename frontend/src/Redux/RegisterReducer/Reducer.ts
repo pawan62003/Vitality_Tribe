@@ -32,7 +32,7 @@ export const Reducer = (state=init,{type,payload}:type) => {
         }
         case REGISTER_SUCCESSFULL : return{
           ...state,
-          isLoading : false
+          isLoading : false,
         }
         case REGISTER_FAILURE : return{
             ...state,

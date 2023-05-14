@@ -13,7 +13,7 @@ const Menus = [
     { title: "Food", link: "/food", icon: <MdFastfood /> },
     { title: "Exercise", link: "/exercise", icon: <GiCycling /> },
     { title: "Community", link: "/community", icon: <CgCommunity /> },
-    { title: "User Profile", link: "/user", icon: <CgProfile />, spacing: true },
+    { title: "User Profile", link: "/userdetails", icon: <CgProfile />, spacing: true },
 ]
 
 const SideNavigationBar = ({obj}:any) => {
@@ -22,9 +22,10 @@ const SideNavigationBar = ({obj}:any) => {
         logoutUser(dispatch)
     }
     return (
-        
-        <div className={`bg-[#081747]  h-screen p-5 ${obj.isOpen ? "w-72" : "w-20"} duration-500  pt-8 relative`}>
-            <BsArrowLeftShort className={`bg-white text-[#081747] text-3xl rounded-full absolute -right-3 top-9 border ${!obj.isOpen && "rotate-180"} border-v-blue cussor-pointer`} onClick={() => obj.setisOpen((prev:any) => !prev)} />
+
+        <div className={`bg-[#081747]  h-full p-5 ${isOpen ? "w-72" : "w-20"} duration-500  pt-8 relative`}>
+            <BsArrowLeftShort className={`bg-white text-[#081747] text-3xl rounded-full absolute -right-3 top-9 border ${!isOpen && "rotate-180"} border-v-blue cussor-pointer`} onClick={() => setisOpen((prev) => !prev)} />
+
             <ul className='pt-2'>
                 {Menus.map((menu, index) => {
                     return <>

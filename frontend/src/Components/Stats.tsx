@@ -23,7 +23,7 @@ const Stats = ({obj}:any) => {
             </div>
 
             <div className='flex-column w-[50%] items-center justify-center'>
-            <h3 className='text-bold text-xl'>Macronutient Targets</h3>
+            <h3 className='text-bold text-2xl mb-2 font-semibold underline'>Macronutrient Targets</h3>
             <table className='w-[90%] m-auto'>
                  <thead>
                    <th>Macronutrients</th>
