@@ -13,6 +13,7 @@ import CommunityPage from '../Pages/CommunityPage'
 
 import UserDetails from '../Pages/UserDetails'
 import Guides from '../Pages/Guides'
+import Compare from '../Pages/Compare'
 
 const MainRoutes = () => {
   return (
@@ -26,9 +27,10 @@ const MainRoutes = () => {
         </PrivateRoute>} />
       <Route path='/food' element={<PrivateRoute><Food /></PrivateRoute>} />
       <Route path="/exercise" element={<PrivateRoute><Exercise /></PrivateRoute>} />
-      <Route path="/community" element={<CommunityPage />} />
+      <Route path="/community" element={<PrivateRoute><CommunityPage /></PrivateRoute>} />
+      <Route path="/compare/:userID" element={<PrivateRoute><Compare/></PrivateRoute>} />
       <Route path="*" element={<PagenotFound />} />
-      <Route path='/userdetails' element={<UserDetails/>}/>
+      <Route path='/userdetails' element={<PrivateRoute><UserDetails/></PrivateRoute>}/>
       <Route path="/guides" element={<Guides/>}/>
     </Routes>
   )

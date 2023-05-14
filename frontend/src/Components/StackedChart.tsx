@@ -13,7 +13,7 @@ interface Props {
 
 const StackedBarChart: React.FC<Props> = ({ data }) => {
   return (
-    <ResponsiveContainer width={"30%"} height={300}>
+    <ResponsiveContainer width={"60%"} height={300}>
       <RechartsBarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
