@@ -66,6 +66,16 @@ userRouter.patch("/update/:noteID",async(req,res)=>{
         res.status(400).send({"err":err.message})
     }
 })
+userRouter.get("/single/:id",async(req,res)=>{
+    
+    const {id}=req.params
+    try {
+        const notes=await UserModel.find({_id:id})
+        res.status(200).send(notes)
+    } catch (err) {
+        res.status(400).send({"err":err.message})
+    }
+})
 
 
 userRouter.patch("/update/:noteID",async(req,res)=>{

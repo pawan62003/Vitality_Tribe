@@ -4,7 +4,8 @@ import{
     LOGIN_REQUEST,
     LOGIN_FAILURE,
     LOGIN_SUCCESSFULL,
-    LOGOUT_USER
+    LOGOUT_USER,
+    UPDATE_SUCCESSFULL
 } from "./actionTypes"
 
 import {
@@ -17,7 +18,7 @@ export const loginUser = (state:user,dispatch:any)=>{
    
   const data = state;
   dispatch({ type: LOGIN_REQUEST });
-  axios({
+ return axios({
     method: 'post',
     url: `http://localhost:8080/users/login`,
     data: data,
@@ -47,14 +48,14 @@ export const logoutUser = (dispatch:any)=>{
 export const updateUser = (state:any,id:string,dispatch:any)=>{
   const data = {details:state};
   dispatch({ type: LOGIN_REQUEST });
-  axios({
+ return axios({
     method: 'patch',
     url: `http://localhost:8080/users/update/${id}`,
     data:data,
   })
     .then((res) => {
       console.log(res)
-      dispatch({ type: LOGIN_SUCCESSFULL,payload:[res.data.token,res.data.user] })
+      dispatch({ type: UPDATE_SUCCESSFULL,payload:res.data.user })
       alert(res.data.msg) 
     })
     .catch((err) => {

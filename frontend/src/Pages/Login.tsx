@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { loginUser } from '../Redux/LoginReducer/action';
+import Footer from '../Components/Footer';
 const initObj = {
   email: "",
   pass: ""
@@ -9,6 +10,8 @@ const initObj = {
 
 
 export default function Login() {
+  let navigate=useNavigate()
+  let location=useLocation()
   const [state, setState] = useState(initObj)
   const dispatch = useDispatch()
   
@@ -16,10 +19,9 @@ export default function Login() {
     let {name,value} = e.target;
     setState({...state,[name]:value})
   }
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    loginUser(state,dispatch)
+    loginUser(state,dispatch).then(()=>navigate(`${location.state}`,{replace:true}))
   }
     return (
       <>
@@ -95,7 +97,9 @@ export default function Login() {
               </Link>
             </p>
           </div>
+
         </div>
+        <Footer/>
       </>
     )
   }

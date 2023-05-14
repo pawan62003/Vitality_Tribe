@@ -168,11 +168,11 @@ const DashboardPage = () => {
 
   console.log(state);
   return (
-    <div className='flex mt-[78px]'>
+    <div className='flex mt-[78px] '>
       <div className='fixed'>
         <SideNavigationBar obj={{ isOpen, setisOpen }} />
       </div>
-      <div className={`w-3/4 my-8 ${isOpen ? "ml-72" : "ml-20"} duration-500`}>
+      <div className={` w-3/4 my-8 ${isOpen ? "ml-[320px]" : "ml-[150px]"} duration-500 `}>
         <h1 className='text-center text-2xl font-bold py-4'>YOUR DASHBOARD</h1>
         <div className='w-full shadow-lg rounded-[5px] p-6 border border-gray-400 overflow-y-scroll '>
           <table className="min-w-full divide-y divide-gray-200 ">
@@ -208,24 +208,25 @@ const DashboardPage = () => {
           {
             dashboard.length != 0 ? <div >
               <Stats obj={state} />
-              <div className=''>
-                <div className="flex justify-end mr-20 mb-[16px]" onClick={()=>handleClick(state)}>
+              <div className="flex justify-end mr-20 mb-[16px]" onClick={()=>handleClick(state)}>
                   <button className='p-3  bg-slate-900 text-white'>Share your Progress</button>
                 </div>
-                <div className='Flex-column border justify-center items-center'>
-                  <p className="text-left text-bold text-4xl">Total Calories Consumed</p>
+              <div className='grid grid-cols-2 gap-5'>
+              
+                <div className='Flex-column border justify-center items-center shadow-xl rounded-lg p-4'>
+                  <p className="text-left text-bold text-3xl">Total Calories Consumed</p>
                   <Chart data={data1} />
                 </div>
-                <div className='Flex-column border justify-center items-center'>
-                  <p className="text-left text-bold text-4xl">Total Calories Remaining</p>
+                <div className='Flex-column border justify-center items-center shadow-xl rounded-lg p-4'>
+                  <p className="text-left text-bold text-3xl">Total Calories Remaining</p>
                   <Chart data={data2} />
                 </div>
-                <div className='Flex-column border justify-center items-center'>
-                  <p className="text-left text-bold text-4xl">Total Calories Burnt</p>
+                <div className='Flex-column border justify-center items-center shadow-xl rounded-lg p-4'>
+                  <p className="text-left text-bold text-3xl">Total Calories Burnt</p>
                   <Chart data={data3} />
                 </div>
-                <div>
-                  <p className="text-left text-bold text-4xl mb-10">Micro Nutrition</p>
+                <div className='Flex-column border justify-center items-center shadow-xl rounded-lg p-4'>
+                  <p className="text-left text-bold text-3xl mb-10 ">Micro Nutrition</p>
                   <StackedBarChart data={data4} />
                 </div>
               </div>

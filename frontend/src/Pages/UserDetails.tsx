@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Redux/RegisterReducer/action";
 import { updateUser } from "../Redux/LoginReducer/action";
 import SideNavigationBar from "../Components/SideNavigationBar";
+import axios from "axios";
 
 interface MyReducerState {
     isError:boolean,
@@ -16,10 +17,13 @@ interface MyReducerState {
   }
   
 
-
 const UserDetails = () => {
+    const [reload,setReload]=useState(true)
+    const [store,setStore]=useState<any>([])
+    const [isOpen, setisOpen] = React.useState(true);
     const [userData,setUserData]=useState<any>({});
-    const store=useSelector((store:RootState)=>store.LoginReducer.user)
+    const loginstore=JSON.parse(localStorage.getItem("user")!)
+
     const dispatch=useDispatch()
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
         let {name,value}=e.target;
@@ -28,22 +32,28 @@ const UserDetails = () => {
         setUserData({...userData,[name]:value})
          
       }
+
       React.useEffect(()=>{
-         
-      },[])
+         axios.get(`http://localhost:8080/users/single/${loginstore[0]._id}`)
+         .then(res=>{
+            console.log("kk",res.data)
+            setStore(res.data)})
+         .catch(err=>console.log(err))
+      },[reload])
       
 
-      console.log(store[0])
+
       const handleSubmit=()=>{
-      updateUser(userData,store[0]._id,dispatch)
+      updateUser(userData,loginstore[0]._id,dispatch).then(res=>setReload(prev=>!prev))
+      
      // window.location.reload()
       }
     return (
-        <div className="flex">
-            <div>
-                <SideNavigationBar/>
-            </div>
-            <div className="mt-8 height-[500px]">
+        <div className='flex mt-[78px]'>
+      <div className='fixed'>
+        <SideNavigationBar obj={{ isOpen, setisOpen }} />
+      </div>
+            <div className={`mt-8 height-[500px] ${isOpen ? "ml-72" : "ml-20"} duration-500`}>
         <div className="flex w-4/5 m-auto gap-16">
             <div className="p-6 pb-10  border-r border-gray-700 border-1 shadow-lg rounded-md">
                 <h2 className="text-2xl font-semibold text-">User Details</h2>
@@ -153,7 +163,7 @@ const UserDetails = () => {
                         </label>
                         <div className="relative rounded-md shadow-sm">
                             <input
-                                type="text"
+                                type="number"
                                 name="phone"
                                 mb-4
                                 onChange={handleChange}
@@ -168,7 +178,7 @@ const UserDetails = () => {
                         </label>
                         <div className="relative rounded-md shadow-sm">
                             <input
-                                type="text"
+                                type="number"
                                 name="weight"
                                 mb-4
                                 onChange={handleChange}
@@ -183,7 +193,7 @@ const UserDetails = () => {
                         </label>
                         <div className="relative  rounded-md shadow-sm">
                             <input
-                                type="text"
+                                type="number"
                                 name="height"
                                 mb-4
                                 onChange={handleChange}

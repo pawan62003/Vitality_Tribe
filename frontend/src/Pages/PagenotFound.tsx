@@ -1,3 +1,5 @@
+import Footer from "../Components/Footer";
+
 export default function PagenotFound() {
     return (
       <>
@@ -27,6 +29,7 @@ export default function PagenotFound() {
             </div>
           </div>
         </main>
+        <Footer/>
       </>
     )
   }

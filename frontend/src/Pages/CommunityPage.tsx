@@ -14,7 +14,7 @@ interface RootState {
   CommunityReducer: MyReducerState;
 }
 const CommunityPage = () => {
-
+  const [isOpen, setisOpen] = React.useState(true);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
  const [data,setData]=React.useState({})
 
@@ -42,19 +42,12 @@ const CommunityPage = () => {
       <div className='fixed'>
         <SideNavigationBar obj={{ isOpen, setisOpen }}/>
       </div>
-      <div className='mx-auto ${isOpen ? "ml-72" : "ml-20"} duration-500'>
+      <div className={`mx-auto ${isOpen ? " ml-[400px]" : "ml-[200px]"} duration-500`}>
         <div>
           <h1 className="text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-8 ">
             Community
           </h1>
         </div>
-
-        <div className='mx-auto '>
-            <div>
-            <h1 className="text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-8 ">
-        Community
-</h1>
-            </div>
             <div className='grid grid-cols-3 gap-20'>
             {stores?.map((el)=>
              <div className=" justify-between shadow-lg p-4 border border-gray-400 rounded-md">
@@ -87,10 +80,9 @@ alt="dummy" className="h-[150px] w-[150px] object-cover  mb-4 m-auto" />
 
             </div>
 
-          )}
         </div>
         {isModalOpen && (
-        <div className="modal fixed top-100 left-20 w-full h-full z-50">
+        <div className="modal fixed top-0 left-20 w-full h-full z-50">
           <div className="modal-overlay absolute w-full h-full bg-white-900 opacity-50"></div>
 
           <div className="modal-container bg-white w-11/12 md:max-w-6xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
@@ -128,8 +120,8 @@ alt="dummy" className="h-[150px] w-[150px] object-cover  mb-4 m-auto" />
           </div>
         </div>
       )}
-
-    </div>
+</div>
+    
   )
 }
 

@@ -4,6 +4,7 @@ import Brain from '../Components/Brain'
 import Depression from '../Components/Depression'
 import WeightLoss from '../Components/WeightLoss'
 import Water from '../Components/Water'
+import Footer from '../Components/Footer'
 
 const Guides = () => {
     const [Article, setArticle] = useState<String>("")
@@ -60,6 +61,7 @@ const Guides = () => {
         {/* <Depression/> */}
         {/* <WeightLoss/> */}
         {(Article==="weight")?<WeightLoss/>:(Article==="brain")?<Brain/>:(Article==="water")?<Water/>:(Article==="depression")?<Depression/>:<div></div>}
+        <Footer/>
     </div>
   )
 }

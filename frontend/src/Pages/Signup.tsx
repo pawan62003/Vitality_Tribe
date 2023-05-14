@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { addUser } from "../Redux/RegisterReducer/action"
 import { useDispatch } from "react-redux"
 import {user} from "../Redux/RegisterReducer/Reducer"
+import Footer from "../Components/Footer"
 const initObj = {
   firstname: "",
   lastname: "",
@@ -143,6 +144,7 @@ export default function Signup() {
           </p>
         </div>
       </div>
+      <Footer/>
     </>
   )
 }
