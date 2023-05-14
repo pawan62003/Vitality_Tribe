@@ -8,6 +8,7 @@ import Charts from '../Components/PieChart'
 import Home from './Home'
 import Chart from '../Components/PieChart'
 import StackedBarChart from '../Components/StackedChart'
+import { addToCommunity } from '../Redux/CommunityReducer/action'
 
 interface login {
   isError: boolean,
@@ -151,8 +152,8 @@ const DashboardPage = () => {
     }
   }
 
-  const handleClick = ()=>{
-
+  const handleClick = (state:any)=>{
+      addToCommunity(state,dispatch)
   }
 
   useEffect(() => {
@@ -207,7 +208,7 @@ const DashboardPage = () => {
             dashboard.length != 0 ? <div >
               <Stats obj={state} />
               <div className=''>
-                <div className="flex justify-end mr-20 mb-[16px]" onClick={handleClick}>
+                <div className="flex justify-end mr-20 mb-[16px]" onClick={()=>handleClick(state)}>
                   <button className='p-3  bg-slate-900 text-white'>Share your Progress</button>
                 </div>
                 <div className='Flex-column border justify-center items-center'>
