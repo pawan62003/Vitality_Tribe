@@ -32,7 +32,6 @@ const UserDetails = () => {
         setUserData({...userData,[name]:value})
          
       }
-
       React.useEffect(()=>{
          axios.get(`http://localhost:8080/users/single/${loginstore[0]._id}`)
          .then(res=>{
