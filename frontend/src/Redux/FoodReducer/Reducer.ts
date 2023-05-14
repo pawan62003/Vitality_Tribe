@@ -13,6 +13,7 @@ const init:MyObject = {
 }
 
 export interface user{
+    _id:string
    name : string,
    Energy : number,
    Protien : number,

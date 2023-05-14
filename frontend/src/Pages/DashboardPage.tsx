@@ -78,7 +78,7 @@ const DashboardPage = () => {
   ]
 
   const Calculator = (dashboard: any) => {
-    if (dashboard.length != 0) {
+    if (dashboard.length != 0 && user.length!==0) {
       let caloriesconsumed = dashboard.reduce((sum: Number, current: any) => {
         let calories
         if (current.type == "food") {
@@ -133,10 +133,10 @@ const DashboardPage = () => {
 
 
       let FatPercent = ((totalFat / 94.7) * 100).toFixed(0);
-
+      console.log("user",user)
       setState({
-        userID: user._id,
-        user: `${user.firstname} ${user.lastname}`,
+        userID: user[0]._id,
+        user: `${user[0].firstname} ${user[0].lastname}`,
         Energy: caloriesconsumed,
         Energy_percentage: +energyPercent,
         Protein: totalprotein,
@@ -154,17 +154,18 @@ const DashboardPage = () => {
   }
 
   const handleClick = (state:any)=>{
-      addToCommunity(state,dispatch)
+      addToCommunity(state,dispatch).then(()=>alert("Added to Community"))
   }
 
   useEffect(() => {
+    console.log("user",user)
     getDashboardItems(token, user._id, dispatch)
   }, [])
 
 
   useEffect(() => {
     Calculator(dashboard)
-  }, [dashboard])
+  }, [dashboard,user])
 
   console.log(state);
   return (
@@ -208,7 +209,9 @@ const DashboardPage = () => {
           {
             dashboard.length != 0 ? <div >
               <Stats obj={state} />
-              <div className="flex justify-end mr-20 mb-[16px]" onClick={()=>handleClick(state)}>
+              <div className="flex justify-end mr-20 mb-[16px]" onClick={()=>{handleClick(state)
+
+              }}>
                   <button className='p-3  bg-slate-900 text-white'>Share your Progress</button>
                 </div>
               <div className='grid grid-cols-2 gap-5'>

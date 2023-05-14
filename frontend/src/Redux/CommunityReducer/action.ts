@@ -8,7 +8,7 @@ export const getCommunity = (dispatch:any)=>{
   dispatch({ type: COMMUNITY_REQUEST });
   axios({
     method: 'get',
-    url: `http://localhost:8080/social`
+    url: `https://anxious-fawn-petticoat.cyclic.app/social`
   })
     .then((res) => {
       console.log(res);
@@ -22,11 +22,10 @@ export const getCommunity = (dispatch:any)=>{
 }
 
 export const addToCommunity = (data:any,dispatch:any)=>{
-
   dispatch({ type: COMMUNITY_REQUEST });
-  axios({
+ return axios({
     method: 'post',
-    url: `http://localhost:8080/social/add`,
+    url: `https://anxious-fawn-petticoat.cyclic.app/social/add`,
     data,
   })
     .then((res) => {
@@ -45,7 +44,7 @@ export const getCompareData = (userID:any,dispatch:any)=>{
   dispatch({ type: COMMUNITY_REQUEST });
   axios({
     method: 'get',
-    url: `http://localhost:8080/social/single/${userID}`,
+    url: `https://anxious-fawn-petticoat.cyclic.app/social/single/${userID}`,
   })
     .then((res) => {
       console.log(res);

@@ -20,14 +20,14 @@ export const loginUser = (state:user,dispatch:any)=>{
   dispatch({ type: LOGIN_REQUEST });
  return axios({
     method: 'post',
-    url: `http://localhost:8080/users/login`,
+    url: `https://anxious-fawn-petticoat.cyclic.app/users/login`,
     data: data,
   })
     .then((res) => {
       localStorage.setItem("token",res.data.token)
       localStorage.setItem("user",JSON.stringify([res.data.user]))
       localStorage.setItem("isAuth",JSON.stringify(true));
-      dispatch({ type: LOGIN_SUCCESSFULL,payload : [res.data.token,res.data.user] })
+      dispatch({ type: LOGIN_SUCCESSFULL,payload : [res.data.token,[res.data.user]] })
       alert(res.data.msg) 
     })
     .catch((err) => {
@@ -50,7 +50,7 @@ export const updateUser = (state:any,id:string,dispatch:any)=>{
   dispatch({ type: LOGIN_REQUEST });
  return axios({
     method: 'patch',
-    url: `http://localhost:8080/users/update/${id}`,
+    url: `https://anxious-fawn-petticoat.cyclic.app/users/update/${id}`,
     data:data,
   })
     .then((res) => {

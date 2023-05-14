@@ -33,7 +33,7 @@ const UserDetails = () => {
          
       }
       React.useEffect(()=>{
-         axios.get(`http://localhost:8080/users/single/${loginstore[0]._id}`)
+         axios.get(`https://anxious-fawn-petticoat.cyclic.app/users/single/${loginstore[0]._id}`)
          .then(res=>{
             console.log("kk",res.data)
             setStore(res.data)})

@@ -8,7 +8,7 @@ export const getFood = (dispatch:any)=>{
   dispatch({ type: FOOD_REQUEST });
   axios({
     method: 'get',
-    url: `http://localhost:8080/food`
+    url: `https://anxious-fawn-petticoat.cyclic.app/food`
   })
     .then((res) => {
       dispatch({ type: FOOD_SUCCESSFULL, payload:res.data})
@@ -21,13 +21,14 @@ export const getFood = (dispatch:any)=>{
 }
 
 export const addFood = (data:user,token:string,dispatch:any)=>{
+  console.log(data)
   const headers = {
     Authorization:`Bearer ${token}`
   };
   dispatch({ type: FOOD_REQUEST });
   axios({
     method: 'post',
-    url: `http://localhost:8080/dashboard/add`,
+    url: `https://anxious-fawn-petticoat.cyclic.app/dashboard/add`,
     data,
     headers:headers,
   })

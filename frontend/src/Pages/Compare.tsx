@@ -19,6 +19,7 @@ const Compare = () => {
   const {userID} = useParams();
   const dispatch = useDispatch();
   const store = useSelector((store: RootState) => store.CommunityReducer)
+  
   React.useEffect(()=>{
     getCompareData(userID,dispatch)
   },[])
@@ -31,11 +32,11 @@ const Compare = () => {
       <div className={`flex w-3/4 my-8 ${isOpen ? "ml-[320px]" : "ml-[150px]"} duration-500 `}>
            {
             store.compareData!=0 ? <div className='flex w-full justify-between'>
-             <div className='w-[50%] border border-black'>
+             <div className='w-[50%] border border-gray shadow-lg rounded-lg p-4'>
                 <p className='text-3xl'>User Name : {store.userData.user}</p>
               <CompareStats obj={store.userData}/>
              </div>
-             <div  className='w-[50%] border border-black'>
+             <div  className='w-[50%] border border-gray shadow-lg rounded-lg p-4'>
              <p className='text-3xl'>User Name : {store.compareData.user}</p>
               <CompareStats obj={store.compareData}/>
              </div>

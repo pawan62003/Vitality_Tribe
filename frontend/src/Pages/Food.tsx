@@ -39,13 +39,14 @@ const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
 const handleSubmit=(id:String)=>{
   let postData=stores.filter((el)=>el._id===id)
   let data=postData[0]
-  data["Energy"]=data.Energy*(+quantity)
-  data["Protein"]=data.Protein*(+quantity)
-  data["Fat"]=data.Fat*(+quantity)
-  data["Netcarbs"]=data.Netcarbs*(+quantity)
-  data["quantity"]=+quantity
-  console.log(data)
-  addFood(data,token,dispatch)
+  let obj={...data}
+  delete obj._id
+  obj["Energy"]=obj.Energy*(+quantity)
+  obj["Protein"]=obj.Protein*(+quantity)
+  obj["Fat"]=obj.Fat*(+quantity)
+  obj["Netcarbs"]=obj.Netcarbs*(+quantity)
+  obj["quantity"]=+quantity
+  addFood(obj,token,dispatch)
   }
 
   return (

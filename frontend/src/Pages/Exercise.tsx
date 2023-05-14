@@ -38,10 +38,11 @@ React.useEffect(()=>{
 const handleSubmit=(id:String)=>{
 let postData=stores.filter((el)=>el._id===id)
 let data=postData[0]
-data["Energy"]=data.Energy*(+quantity)
-data["quantity"]=+quantity
-console.log(data)
-addExercise(data,token,dispatch)
+let obj={...data}
+delete obj._id
+obj["Energy"]=obj.Energy*(+quantity)
+obj["quantity"]=+quantity
+addExercise(obj,token,dispatch)
 }
   return (
     <div className='flex mt-[78px]'>

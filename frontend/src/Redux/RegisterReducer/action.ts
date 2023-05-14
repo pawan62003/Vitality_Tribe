@@ -17,7 +17,7 @@ export const addUser = (state:user,dispatch:any)=>{
   dispatch({ type: REGISTER_REQUEST });
   axios({
     method: 'post',
-    url: `http://localhost:8080/users/register`,
+    url: `https://anxious-fawn-petticoat.cyclic.app/users/register`,
     data: data,
   })
     .then((res) => {

@@ -8,7 +8,7 @@ export const getExercise = (dispatch:any)=>{
   dispatch({ type: EXERCISE_REQUEST });
   axios({
     method: 'get',
-    url: `http://localhost:8080/exercise`
+    url: `https://anxious-fawn-petticoat.cyclic.app/exercise`
   })
     .then((res) => {
       dispatch({ type: EXERCISE_SUCCESSFULL, payload:res.data})
@@ -27,7 +27,7 @@ export const addExercise = (data:user,token:string,dispatch:any)=>{
   dispatch({ type: EXERCISE_REQUEST });
   axios({
     method: 'post',
-    url: `http://localhost:8080/dashboard/add`,
+    url: `https://anxious-fawn-petticoat.cyclic.app/dashboard/add`,
     data,
     headers:headers,
   })

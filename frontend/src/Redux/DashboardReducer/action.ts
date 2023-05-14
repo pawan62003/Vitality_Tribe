@@ -18,7 +18,7 @@ export const getDashboardItems = (token:string, item:string, dispatch:any) => {
     dispatch({ type: DASHBOARD_REQUEST });
     axios({
       method: 'get',
-      url: `http://localhost:8080/dashboard/`,
+      url: `https://anxious-fawn-petticoat.cyclic.app/dashboard/`,
       data: data,
       headers: headers
     })
