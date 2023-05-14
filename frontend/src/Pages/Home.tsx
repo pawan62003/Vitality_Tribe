@@ -1,4 +1,5 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import Footer from '../Components/Footer';
 
 const chartData = [
   { name: 'Jan', uv: 4000, pv: 2400, amt: 2400 },
@@ -11,6 +12,7 @@ const chartData = [
 ];
 const Home = () => {
   return (
+
     <div className="bg-gray-100">
       <header className="bg-blue-500 py-4">
         <div className="container mx-auto px-4">
@@ -68,7 +70,9 @@ const Home = () => {
           </div>
         </section>
         </main>
+        <Footer/>
         </div>
   )}
+
 
 export default Home

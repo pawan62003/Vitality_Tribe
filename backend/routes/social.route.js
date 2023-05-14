@@ -12,6 +12,17 @@ socialRouter.get("/",async(req,res)=>{
     }
 })
 
+socialRouter.get("/single/:id",async(req,res)=>{
+    
+    const {id}=req.params
+    try {
+        const notes=await SocialModel.find({userID:id})
+        res.status(200).send(notes)
+    } catch (err) {
+        res.status(400).send({"err":err.message})
+    }
+})
+
 socialRouter.post("/add",async(req,res)=>{
     const userID=req.body.userID;
     const data= await SocialModel.findOne({userID:userID})

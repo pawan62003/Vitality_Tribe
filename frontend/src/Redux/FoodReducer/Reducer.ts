@@ -19,6 +19,7 @@ export interface user{
    Fat : number,
    Netcarbs : number,
    type? : string
+   quantity:number
 }
 export interface type{
    type : string,

@@ -4,7 +4,8 @@ import{
     LOGIN_REQUEST,
     LOGIN_FAILURE,
     LOGIN_SUCCESSFULL,
-    LOGOUT_USER
+    LOGOUT_USER,
+    UPDATE_SUCCESSFULL
 } from "./actionTypes"
 
 const init = {
@@ -49,6 +50,12 @@ export const Reducer = (state=init,{type,payload}:type) => {
             isAuth : false,
             token : ""
          }
+         case UPDATE_SUCCESSFULL : return{
+          ...state,
+          isLoading : false,
+          isAuth : true,
+          user : payload
+        }
          default: return state
    }
   

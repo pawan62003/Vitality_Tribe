@@ -16,6 +16,7 @@ export interface user{
    Energy : number,
    time : number,
    type? : string,
+   quantity:number
 }
 export interface type{
    type : string,

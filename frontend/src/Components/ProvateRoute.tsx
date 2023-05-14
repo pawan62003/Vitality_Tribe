@@ -1,7 +1,7 @@
 import React from 'react'
 import {FC} from "react"
 import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 interface login {
   isError:boolean,
@@ -15,9 +15,10 @@ interface store {
 }
 
 const PrivateRoute = ({children}:any) => {
+  const location=useLocation()
   const {token,isAuth} = useSelector((store:store)=>store.LoginReducer)
   if(!isAuth){
-    return <Navigate to="/login" replace={true} />
+    return <Navigate to="/login" state={location.pathname} replace={true} />
   }
   return children
 }

@@ -11,7 +11,7 @@ import {
     type //{type:string,payload}
 } from "./Reducer"
 
-export const addUser = (state:user,dispatch:any,toast:any)=>{
+export const addUser = (state:user,dispatch:any)=>{
    
   const data = state;
   dispatch({ type: REGISTER_REQUEST });
@@ -30,6 +30,8 @@ export const addUser = (state:user,dispatch:any,toast:any)=>{
       })
     });
 }
+
+
 
 
 

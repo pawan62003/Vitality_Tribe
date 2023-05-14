@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import{ COMMUNITY_FAILURE, COMMUNITY_REQUEST, COMMUNITY_SUCCESSFULL } from "./actionTypes"
+import{ COMMUNITY_FAILURE, COMMUNITY_REQUEST, COMMUNITY_SUCCESSFULL,ADD_TO_COMMUNITY_SUCCESSFUL } from "./actionTypes"
 import { user } from "./Reducer";
 
 export const getCommunity = (dispatch:any)=>{
@@ -21,6 +21,24 @@ export const getCommunity = (dispatch:any)=>{
     });
 }
 
+export const addToCommunity = (data:any,dispatch:any)=>{
+ 
+  dispatch({ type: COMMUNITY_REQUEST });
+  axios({
+    method: 'post',
+    url: `http://localhost:8080/social/add`,
+    data,
+  })
+    .then((res) => {
+      console.log(res)
+      dispatch({ type: ADD_TO_COMMUNITY_SUCCESSFUL,payload :data })
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: COMMUNITY_FAILURE,
+      })
+    });
+}
 
 
 

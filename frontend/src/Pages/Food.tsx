@@ -43,6 +43,7 @@ const handleSubmit=(id:String)=>{
   data["Protein"]=data.Protein*(+quantity)
   data["Fat"]=data.Fat*(+quantity)
   data["Netcarbs"]=data.Netcarbs*(+quantity)
+  data["quantity"]=+quantity
   console.log(data)
   addFood(data,token,dispatch)
   }

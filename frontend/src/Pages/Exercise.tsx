@@ -39,6 +39,7 @@ const handleSubmit=(id:String)=>{
 let postData=stores.filter((el)=>el._id===id)
 let data=postData[0]
 data["Energy"]=data.Energy*(+quantity)
+data["quantity"]=+quantity
 console.log(data)
 addExercise(data,token,dispatch)
 }
